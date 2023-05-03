@@ -20,6 +20,8 @@ body {
     height: 50vh;
     background-color: aquamarine;
     position: relative;
+    display: none;
+
 }
 
 #info {
@@ -32,7 +34,7 @@ img {
     height: 100%;
     width: 100%;
     object-fit: cover;
-    /* display: none; */
+
 }
 
 .dBlock {

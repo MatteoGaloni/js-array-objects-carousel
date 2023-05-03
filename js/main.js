@@ -26,10 +26,12 @@ const images = [
   },
 ];
 
+let currentCard = 0;
+// ********************************************************
 for (let i = 0; i < images.length; i++) {
   const card = images[i];
-  console.log(card);
-  const elContainer = document.getElementById("container");
+  // console.log(card);
+  const elContainer = document.getElementById("slider");
   let tagContent = `<div class="card">`;
   tagContent += `<img class="slide" src="./${card.image}" alt="${card.title}">`;
   tagContent += `<div id="info">`;
@@ -38,4 +40,7 @@ for (let i = 0; i < images.length; i++) {
   tagContent += `</div>`;
   tagContent += `</div>`;
   elContainer.innerHTML += tagContent;
+  if (card[0]) {
+    card.classList = "dBlock";
+  }
 }
