@@ -1,3 +1,4 @@
+let currentCard = 0;
 const images = [
   {
     image: "img/01.webp",
@@ -25,12 +26,9 @@ const images = [
     text: "Marvel's Avengers is an epic, third-person, action-adventure game that combines an original, cinematic story with single-player and co-operative gameplay.",
   },
 ];
-
-let currentCard = 0;
 // ********************************************************
 for (let i = 0; i < images.length; i++) {
   const card = images[i];
-
   const elContainer = document.getElementById("slider");
   let tagContent = `<div class="card">`;
   tagContent += `<img class="slide" src="./${card.image}" alt="${card.title}">`;
@@ -41,7 +39,26 @@ for (let i = 0; i < images.length; i++) {
   tagContent += `</div>`;
   elContainer.innerHTML += tagContent;
 }
-
+// *************************************************************************
 const sliderCard = document.querySelectorAll("#slider > .card");
 sliderCard[0].classList.add("dBlock");
-// sliderCard.classList.add(dBlock);
+// **********************************************************************
+const btnNext = document.getElementById("btnNext");
+btnNext.addEventListener("click", function () {
+  sliderCard[currentCard].classList.remove("dBlock");
+  currentCard++;
+  if (currentCard == images.length) {
+    currentCard = 0;
+  }
+  sliderCard[currentCard].classList.add("dBlock");
+});
+// *****************************************************************************
+const btnPrevious = document.getElementById("btnPrevious");
+btnPrevious.addEventListener("click", function () {
+  sliderCard[currentCard].classList.remove("dBlock");
+  if (currentCard == 0) {
+    currentCard = images.length;
+  }
+  currentCard--;
+  sliderCard[currentCard].classList.add("dBlock");
+});
