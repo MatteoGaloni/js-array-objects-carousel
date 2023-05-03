@@ -30,7 +30,7 @@ let currentCard = 0;
 // ********************************************************
 for (let i = 0; i < images.length; i++) {
   const card = images[i];
-  // console.log(card);
+
   const elContainer = document.getElementById("slider");
   let tagContent = `<div class="card">`;
   tagContent += `<img class="slide" src="./${card.image}" alt="${card.title}">`;
@@ -40,7 +40,8 @@ for (let i = 0; i < images.length; i++) {
   tagContent += `</div>`;
   tagContent += `</div>`;
   elContainer.innerHTML += tagContent;
-  if (card[0]) {
-    card.classList = "dBlock";
-  }
 }
+
+const sliderCard = document.querySelectorAll("#slider > .card");
+sliderCard[0].classList.add("dBlock");
+// sliderCard.classList.add(dBlock);
