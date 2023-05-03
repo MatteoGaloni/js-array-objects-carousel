@@ -15,7 +15,7 @@ body {
     align-items: center;
 }
 
-#slider {
+.card {
     width: 100vh;
     height: 50vh;
     background-color: aquamarine;
