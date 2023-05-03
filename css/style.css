@@ -1,0 +1,53 @@
+/* ***Reset*** */
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ***************** */
+#container {
+    position: relative;
+    height: 100vh;
+    background-color: teal;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#slider {
+    width: 100vh;
+    height: 50vh;
+    background-color: aquamarine;
+    position: relative;
+}
+
+#info {
+    position: absolute;
+    bottom: 0;
+    color: white;
+}
+
+img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    /* display: none; */
+}
+
+.dBlock {
+    display: block;
+}
+
+.btn {
+    /* position: absolute; */
+    background-color: #00000000;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+}
