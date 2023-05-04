@@ -45,12 +45,13 @@ sliderCard[0].classList.add("dBlock");
 // **********************************************************************
 const btnNext = document.getElementById("btnNext");
 btnNext.addEventListener("click", function () {
-  sliderCard[currentCard].classList.remove("dBlock");
-  currentCard++;
-  if (currentCard == images.length) {
-    currentCard = 0;
-  }
-  sliderCard[currentCard].classList.add("dBlock");
+  play();
+  // sliderCard[currentCard].classList.remove("dBlock");
+  // currentCard++;
+  // if (currentCard == images.length) {
+  //   currentCard = 0;
+  // }
+  // sliderCard[currentCard].classList.add("dBlock");
 });
 // *****************************************************************************
 const btnPrevious = document.getElementById("btnPrevious");
@@ -62,3 +63,14 @@ btnPrevious.addEventListener("click", function () {
   currentCard--;
   sliderCard[currentCard].classList.add("dBlock");
 });
+
+setInterval(play, 3000);
+
+function play() {
+  sliderCard[currentCard].classList.remove("dBlock");
+  currentCard++;
+  if (currentCard == images.length) {
+    currentCard = 0;
+  }
+  sliderCard[currentCard].classList.add("dBlock");
+}
