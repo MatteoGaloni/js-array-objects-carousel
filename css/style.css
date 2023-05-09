@@ -89,3 +89,19 @@ img {
 #btnNext {
     right: 0;
 }
+
+#play {
+    position: relative;
+    left: 66%;
+    border-radius: 8px;
+
+    background-color: rgba(10, 64, 89, 0.957);
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 2rem;
+    cursor: pointer;
+}
