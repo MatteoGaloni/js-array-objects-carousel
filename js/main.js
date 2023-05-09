@@ -1,6 +1,7 @@
 // ******************VARIABLES****************
 let currentCard = 0;
 let currentThumbs;
+let myTimer = null;
 const sliderContainer = document.getElementById("slider");
 const thumbsContainer = document.getElementById("thumbs-slider");
 
@@ -69,11 +70,10 @@ btnPrevious.addEventListener("click", function () {
   playBack();
 });
 // *************************************************************************
-let myTimer = null;
+
 document.getElementById("play").addEventListener("click", function () {
   if (myTimer == null) {
-    setInterval(playForward, 3000);
-    myTimer = !null;
+    myTimer = setInterval(playForward, 3000);
     console.log(myTimer);
   } else {
     clearInterval(myTimer);
