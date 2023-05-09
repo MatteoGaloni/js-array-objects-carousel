@@ -1,4 +1,10 @@
+// ******************VARIABLES****************
 let currentCard = 0;
+let currentThumbs;
+const sliderContainer = document.getElementById("slider");
+const thumbsContainer = document.getElementById("thumbs-slider");
+
+// ******************INIT**********************************
 const images = [
   {
     image: "img/01.webp",
@@ -29,48 +35,68 @@ const images = [
 // ********************************************************
 for (let i = 0; i < images.length; i++) {
   const card = images[i];
-  const elContainer = document.getElementById("slider");
   let tagContent = `<div class="card">`;
-  tagContent += `<img class="slide" src="./${card.image}" alt="${card.title}">`;
+  tagContent += `<img id="${i}" src="./${card.image}" alt="${card.title}">`;
   tagContent += `<div id="info">`;
   tagContent += `<h2>"${card.title}"</h2>`;
   tagContent += `<p>"${card.text}"</p>`;
   tagContent += `</div>`;
   tagContent += `</div>`;
-  elContainer.innerHTML += tagContent;
+  sliderContainer.innerHTML += tagContent;
+  let thumbsContent = `<div class="thumbs">`;
+  thumbsContent += `<img id="${i}" src="./${card.image}" alt="${card.title}">`;
+  thumbsContent += `</div>`;
+  thumbsContainer.innerHTML += thumbsContent;
 }
-// *************************************************************************
-const sliderCard = document.querySelectorAll("#slider > .card");
+
+// // *************************************************************************
+const sliderCard = document.querySelectorAll(".card");
 sliderCard[0].classList.add("dBlock");
-// **********************************************************************
+// // **********************************************************************
+const thumbElement = document.getElementsByClassName("thumbs");
+for (let i = 0; i < thumbElement.length; i++) {
+  const thumb = thumbElement[i];
+  thumb.addEventListener("click", function () {});
+}
+
 const btnNext = document.getElementById("btnNext");
 btnNext.addEventListener("click", function () {
-  play();
-  // sliderCard[currentCard].classList.remove("dBlock");
-  // currentCard++;
-  // if (currentCard == images.length) {
-  //   currentCard = 0;
-  // }
-  // sliderCard[currentCard].classList.add("dBlock");
+  playForward();
 });
 // *****************************************************************************
 const btnPrevious = document.getElementById("btnPrevious");
 btnPrevious.addEventListener("click", function () {
-  sliderCard[currentCard].classList.remove("dBlock");
-  if (currentCard == 0) {
-    currentCard = images.length;
+  playBack();
+});
+// *************************************************************************
+let myTimer = null;
+document.getElementById("play").addEventListener("click", function () {
+  if (myTimer == null) {
+    setInterval(playForward, 3000);
+    myTimer = !null;
+    console.log(myTimer);
+  } else {
+    clearInterval(myTimer);
+    myTimer = null;
+    console.log(myTimer);
   }
-  currentCard--;
-  sliderCard[currentCard].classList.add("dBlock");
 });
 
-setInterval(play, 3000);
-
-function play() {
+// ********************FUNCTIONS***********************************
+function playForward() {
   sliderCard[currentCard].classList.remove("dBlock");
   currentCard++;
   if (currentCard == images.length) {
     currentCard = 0;
   }
+  sliderCard[currentCard].classList.add("dBlock");
+}
+
+function playBack() {
+  sliderCard[currentCard].classList.remove("dBlock");
+  if (currentCard == 0) {
+    currentCard = images.length;
+  }
+  currentCard--;
   sliderCard[currentCard].classList.add("dBlock");
 }
